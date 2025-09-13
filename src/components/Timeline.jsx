@@ -49,6 +49,7 @@ export const Timeline = ({ items }) => {
                     isHovered={isHovered}
                     onMouseEnter={() => setHoveredItem(item.id)}
                     onMouseLeave={() => setHoveredItem(null)}
+                    laneIndex={laneIndex}
                   />
                 );
               })}

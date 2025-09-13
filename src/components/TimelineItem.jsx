@@ -9,6 +9,7 @@ export const TimelineItem = ({
   isHovered,
   onMouseEnter,
   onMouseLeave,
+  laneIndex,
 }) => {
   return (
     <>
@@ -35,9 +36,7 @@ export const TimelineItem = ({
           className="fixed bg-white border border-gray-200 rounded-lg shadow-xl p-4 text-gray-900 min-w-72 pointer-events-none"
           style={{
             left: `${parseFloat(position.left)}%`,
-            top: "100px",
-            zIndex: 1000,
-            transform: "translateX(-50%)",
+            top: `${100 + laneIndex * 80}px`,
           }}
         >
           <h3 className="font-semibold text-lg mg-2 text-gray-900">
