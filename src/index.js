@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Header } from "./components/Header.jsx";
+import { Timeline } from "./components/Timeline.jsx";
+import timelineItems from "./timelineItems.js";
 
 function App() {
   return (
-    <div className="container mx-auto p-6">
-      <Header />
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+      <Timeline items={timelineItems} />
     </div>
   );
 }
