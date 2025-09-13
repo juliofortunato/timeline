@@ -11,7 +11,8 @@ export const TimelineLegend = ({ lanes, laneColors }) => {
               } rounded`}
             ></div>
             <span>
-              Lane {index + 1} - {lane.length} tasks
+              Lane {index + 1} ({lane.length} task{lane.length === 1 ? "" : "s"}
+              )
             </span>
           </div>
         ))}
