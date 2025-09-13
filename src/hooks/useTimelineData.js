@@ -27,20 +27,27 @@ export const useTimelineData = (items = []) => {
 
     const markers = [];
     let current = startOfMonth(paddedMinDate);
-    const totalDays = differenceInDays(paddedMaxDate, paddedMinDate);
 
+    const allMarkers = [];
     while (current <= paddedMaxDate) {
-      const daysDiff = differenceInDays(current, paddedMinDate);
-      const position = (daysDiff / totalDays) * 100;
-
-      markers.push({
+      allMarkers.push({
         date: current,
         label: format(current, "MMM yyyy"),
-        position,
       });
-
       current = addMonths(current, 1);
     }
+
+    allMarkers.forEach((marker, index) => {
+      const position =
+        allMarkers.length === 1 ? 50 : (index / (allMarkers.length - 1)) * 100;
+
+      markers.push({
+        ...marker,
+        position,
+      });
+    });
+
+    const totalDays = differenceInDays(paddedMaxDate, paddedMinDate);
 
     const dateRange = { min: paddedMinDate, max: paddedMaxDate, totalDays };
 

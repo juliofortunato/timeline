@@ -4,7 +4,13 @@ export const DateAxis = ({ dateMarkers }) => {
       {dateMarkers.map((marker, index) => (
         <div
           key={index}
-          className="absolute flex flex-col items-center transform -translate-x-1/2"
+          className={`absolute flex flex-col items-center ${
+            index === 0
+              ? ""
+              : index === dateMarkers.length - 1
+              ? "transform -translate-x-full"
+              : "transform -translate-x-1/2"
+          }`}
           style={{ left: `${marker.position}%` }}
         >
           <div className="w-px h-3 bg-gray-400 mb-2"></div>
