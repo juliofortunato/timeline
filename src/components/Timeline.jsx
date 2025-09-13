@@ -16,7 +16,7 @@ const LANE_COLORS = [
   "bg-amber-500",
 ];
 
-export const Timeline = ({ items }) => {
+export const Timeline = ({ items, onUpdateItemName }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
   const { dateMarkers, lanes, getItemPosition } = useTimelineData(items);
 
@@ -50,6 +50,7 @@ export const Timeline = ({ items }) => {
                     onMouseEnter={() => setHoveredItem(item.id)}
                     onMouseLeave={() => setHoveredItem(null)}
                     laneIndex={laneIndex}
+                    onUpdateName={onUpdateItemName}
                   />
                 );
               })}
