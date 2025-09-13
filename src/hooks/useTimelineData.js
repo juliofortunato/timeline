@@ -9,9 +9,9 @@ import {
   startOfMonth,
 } from "date-fns";
 import { useMemo } from "react";
-import { assignLanes } from "../assignLanes";
+import { assignLanes } from "../utils/assignLanes";
 
-export const useTimelineData = ({ items }) => {
+export const useTimelineData = (items = []) => {
   return useMemo(() => {
     const lanes = assignLanes(items);
 
